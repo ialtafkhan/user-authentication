@@ -1,0 +1,7 @@
+.container {
+    color: #fff;
+}
+
+.navbar-nav .name {
+    text-transform: capitalize;
+}
