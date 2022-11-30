@@ -6,7 +6,7 @@ import { logoutAction } from '../store/action/userActon'
 import { useNavigate } from 'react-router-dom'
 export default function Navbar() {
     const navigate = useNavigate()
-    const { login,users } = useSelector(state => state.user)
+    const { login, users } = useSelector(state => state.Allusers)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -40,7 +40,10 @@ export default function Navbar() {
                                         <Link className="nav-link" to={"/signin"}>login</Link>
                                     </>
                             }
+                            {
+                                login?.isAdmin && (<Link className="nav-link text-capitalize" to={"/admin/all-user"}>all users</Link>)
 
+                            }
 
 
 

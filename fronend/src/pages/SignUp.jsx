@@ -13,8 +13,9 @@ export default function SignUp() {
     const formik = useFormik({
 
         initialValues: {
-            name: "altaf",
-            email: "altaf@gmail.com",
+            name: "Altaf khan",
+            email: "altafkhan@gmail.com",
+            mobile: "9896221420",
             password: "123",
             cpassword: "123",
         },
@@ -22,13 +23,14 @@ export default function SignUp() {
 
             name: yup.string().required("its requaird filed"),
             email: yup.string().required("its requaird filed").email(),
+            mobile: yup.string().required("this is req"),
             password: yup.string().required("its requaird filed"),
             cpassword: yup.string()
                 .oneOf([yup.ref("password"), null, "password should be match"])
 
         }),
         onSubmit: ({
-            name, email, password
+            name, email, password, mobile
         }) => {
 
             let fd = new FormData()
@@ -36,6 +38,7 @@ export default function SignUp() {
             fd.append("email", email)
             fd.append("password", password)
             fd.append("image", image)
+            fd.append("mobile", mobile)
             console.log(fd);
 
             dispatch(signUpAction(fd))
@@ -93,6 +96,20 @@ export default function SignUp() {
 
                                     </div>
                                     <div className='mt-2' >
+                                        <label className='form-label' htmlFor="mobile">Mobile</label>
+                                        <input
+                                            value={formik.values.mobile}
+                                            onChange={formik.handleChange}
+                                            type="text"
+                                            id='mobile'
+                                            placeholder='pls email'
+                                            className='form-control'
+                                        />
+
+                                        <span className='invalid-feedback'></span>
+
+                                    </div>
+                                    <div className='mt-2' >
                                         <label className='form-label' htmlFor="password">password</label>
                                         <input
                                             value={formik.values.password}
@@ -120,16 +137,16 @@ export default function SignUp() {
                                         <span className='invalid-feedback'></span>
 
                                     </div>
-
-                                    <button className='btn btn-outline-primary' >
-                                        uplaod file
-                                        <input
-                                            type="file"
-                                            // hidden
-                                            onChange={handleImage}
-                                        />
-                                    </button>
-                                    <img src={preview} alt="" height={100} />
+                                    <input
+                                        type="file"
+                                        // hidden
+                                        onChange={handleImage}
+                                    />
+                                    {/* <button className='btn btn-outline-primary' >
+                                
+                                       
+                                    </button> */}
+                                    <img src={preview} alt="" height={100} className='img-fluid' />
 
 
                                     <button className='btn btn-primary mt-3 w-100 ' type='submit' >signup</button>

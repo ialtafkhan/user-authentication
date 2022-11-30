@@ -32,7 +32,9 @@ exports.login = async (req, res) => {
             result: {
                 token,
                 name: result.name,
-                email: result.email
+                email: result.email,
+                isAdmin: result.isAdmin
+
             }
         })
 

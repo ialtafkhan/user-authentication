@@ -23,7 +23,7 @@ exports.adduser = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             success: false,
-            message: "smothing wrong"
+            message: "smothing wrong" + error
 
         })
 
@@ -54,6 +54,7 @@ exports.getAllUser = async (req, res) => {
     }
 
 }
+
 exports.deleteAllUser = async (req, res) => {
     try {
 
@@ -67,9 +68,56 @@ exports.deleteAllUser = async (req, res) => {
 
 
     } catch (error) {
-        es.status(400).json({
+        res.status(400).json({
             success: false,
             message: "somthing wrong",
+
+        })
+
+
+    }
+
+}
+
+exports.deletesingleUser = async (req, res) => {
+    try {
+
+        const result = await user.findByIdAndDelete(req.params.id, req.body)
+        res.status(201).json({
+            count: result.length,
+            success: true,
+            message: "user deletd successfully",
+            result
+        })
+
+
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: "somthing wrong" + error,
+
+        })
+
+
+    }
+
+}
+
+exports.updateUser = async (req, res) => {
+    try {
+
+        const result = await user.findByIdAndUpdate(req.params.id, req.body)
+        res.status(201).json({
+            success: true,
+            message: "user upated successfully",
+            result
+        })
+
+
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: "somthing wrong" + error,
 
         })
 

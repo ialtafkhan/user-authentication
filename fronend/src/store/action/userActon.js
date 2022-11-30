@@ -9,7 +9,7 @@ export const signUpAction = (fd) => async (dispacth) => {
         dispacth({ type: USER_SIGNUP_REQUEST })
         const { data } = await axios.post(`/user/signup`, fd)
         console.log(data);
-        dispacth({ type: USER_SIGNUP_REQUEST_SUCCESS, payload: data })
+        dispacth({ type: USER_SIGNUP_REQUEST_SUCCESS })
         // dispacth(signInAction({ email: fd.email, password: fd.password }))
 
     } catch (error) {

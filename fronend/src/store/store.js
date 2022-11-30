@@ -9,11 +9,11 @@ const localLogin = localStorage.getItem("signin")
 
 
 const rootReducer = combineReducers({
-    user: userReducer
+    Allusers: userReducer
 
 })
 const initialStatus = {
-    user: localLogin
+    Allusers: localLogin
 }
 
 

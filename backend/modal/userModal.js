@@ -14,10 +14,18 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }, 
+    },
     image: {
         type: String,
-        required: true
+        default: 'upload/default.png'
+    },
+    mobile: {
+        type: String,
+        default: 7020989622
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 
 }, { timestamps: true })

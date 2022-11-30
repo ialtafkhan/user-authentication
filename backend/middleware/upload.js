@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
 
     filename: (req, file, cb) => {
         const ext = path.extname(file.originalname)
-        const fn = "product-" + Date.now() + ext
+        const fn = "user-" + Date.now() + ext
 
         req.body.image = `upload/${fn}`
         cb(null, fn)

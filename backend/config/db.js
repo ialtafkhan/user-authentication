@@ -13,7 +13,7 @@ const db = async () => {
 
 
     } catch (error) {
-        console.log(`error`.bgRed);
+        console.log(`error ${error}`.bgRed);
         process.exit()
     }
 }
